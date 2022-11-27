@@ -91,8 +91,6 @@ public class DesignOverviewPage extends AbstractPage {
 	@Override
 	public DesignOverviewPage openPage() {
 		webDriver.get(DESIGN_PAGE_URL);
-		new WebDriverWait(webDriver, Duration.ofMillis(STAND_TIME_OF_WAITING))
-				.until(ExpectedConditions.presenceOfElementLocated(By.xpath(CONTROL_ELEMENT_FOR_LOADING_PAGE)));
 		if (!webDriver.getCurrentUrl().equals(DESIGN_PAGE_URL)) {
 			webDriver.get(DESIGN_PAGE_URL);
 		}
