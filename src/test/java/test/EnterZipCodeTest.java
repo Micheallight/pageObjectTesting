@@ -38,6 +38,5 @@ public class EnterZipCodeTest {
 	@AfterMethod(alwaysRun = true)
 	public void endOfTest() {
 		webDriver.quit();
-		webDriver = null;
 	}
 }
