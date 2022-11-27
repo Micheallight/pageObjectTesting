@@ -3,8 +3,6 @@ package page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import java.time.Duration;
-
 public abstract class AbstractPage {
 
 	protected WebDriver webDriver;
@@ -14,5 +12,5 @@ public abstract class AbstractPage {
 		PageFactory.initElements(webDriver, this);
 	}
 
-	protected abstract AbstractPage openPage();
+	protected abstract AbstractPage openPage() throws InterruptedException;
 }

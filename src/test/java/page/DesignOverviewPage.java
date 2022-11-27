@@ -25,6 +25,8 @@ public class DesignOverviewPage extends AbstractPage {
 
 	private static final String EXPECTED_TEXT_NEAR_ENTERED_ZIP_STRING = "//span[text()[contains(.,'See Early Delivery Options')]]";
 
+	private static final String CONTROL_ELEMENT_FOR_LOADING_PAGE = "//button[@class='tds-site-nav-item tds-animate--backdrop tds-site-header-menu-link']";
+
 	@FindBy(xpath = PURCHASE_PRICE_BUTTON_XPATH)
 	private WebElement purchasePriceButton;
 
@@ -89,7 +91,14 @@ public class DesignOverviewPage extends AbstractPage {
 	@Override
 	public DesignOverviewPage openPage() {
 		webDriver.get(DESIGN_PAGE_URL);
-		webDriver.get(DESIGN_PAGE_URL);
+		new WebDriverWait(webDriver, Duration.ofMillis(STAND_TIME_OF_WAITING))
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath(CONTROL_ELEMENT_FOR_LOADING_PAGE)));
+		if (!webDriver.getCurrentUrl().equals(DESIGN_PAGE_URL)) {
+			webDriver.get(DESIGN_PAGE_URL);
+		}
+		if (!webDriver.getCurrentUrl().equals(DESIGN_PAGE_URL)) {
+			webDriver.get(DESIGN_PAGE_URL);
+		}
 		return this;
 	}
 }
