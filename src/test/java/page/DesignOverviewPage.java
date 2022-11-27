@@ -46,7 +46,7 @@ public class DesignOverviewPage extends AbstractPage {
 
 	public DesignOverviewPage switchToPurchasePrice() {
 		new WebDriverWait(webDriver, Duration.ofMillis(STAND_TIME_OF_WAITING))
-				.until(ExpectedConditions.presenceOfElementLocated(By.xpath(PURCHASE_PRICE_BUTTON_XPATH)));
+				.until(ExpectedConditions.elementToBeClickable(By.xpath(PURCHASE_PRICE_BUTTON_XPATH)));
 		purchasePriceButton.click();
 
 		return this;
